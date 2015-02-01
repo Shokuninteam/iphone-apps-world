@@ -16,3 +16,28 @@
 	background-image: none;
 	border: none;
 }
+
+#app-store-pic{
+	height : 150px;
+	width : 150px;
+}
+
+#header{
+	background-color: #eee;
+	padding-top : 20px;
+	padding-bottom : 20px;
+}
+
+#header-title{
+	font-size: 36px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-family: inherit;
+	font-weight: 500;
+	line-height: 1.1;
+	color: inherit;
+}
+
+#header-sub{
+	font-size: 18px;
+}
