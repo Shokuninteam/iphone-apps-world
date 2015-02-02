@@ -23,7 +23,8 @@
 }
 
 #header{
-	background-color: #eee;
+	background-color: #6cadd1;
+	color : white;
 	padding-top : 20px;
 	padding-bottom : 20px;
 }
@@ -40,4 +41,23 @@
 
 #header-sub{
 	font-size: 18px;
+}
+
+.top-list-logo{
+	width: 40px;
+	height: 40px;
+}
+
+.top-list-header{
+	border-bottom : solid #ccc 1px;
+	padding-bottom: 5px;
+}
+
+.top-list-name{
+	font-size: 18px;
+	margin-left: 10px;
+}
+
+.top-list-category{
+	margin-top: 9px;
 }
