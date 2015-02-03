@@ -12,6 +12,10 @@ iphoneApp.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'views/category.html',
         controller: 'CategoryCtrl'
       }).
+      when('/article/:article', {
+        templateUrl: 'views/article.html',
+        controller: 'ArticleCtrl'
+      }).
       otherwise({
         redirectTo: '/'
       });
