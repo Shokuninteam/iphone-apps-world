@@ -42,12 +42,12 @@ body{
 }
 
 #header{
-	background-color: #6cadd1;
-	color : white;
+	background-color: #eee;
+	color : #666;
 	padding-top : 20px;
 	padding-bottom : 20px;
-	border-top: solid 1px #aaa;
-	border-bottom: solid 1px #aaa;
+	border-top: solid 1px #ddd;
+	border-bottom: solid 1px #ddd;
 }
 
 #header-title{
@@ -114,6 +114,16 @@ body{
 .article-div{
 	margin-top: 20px;
 	margin-bottom: 20px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ddd;
+}
+
+.article-div:hover{
+	cursor: pointer;
+	-webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+	border-color : white;
 }
 
 .article-picture{
@@ -123,4 +133,27 @@ body{
 
 .article-row-header{
 	margin-bottom: 10px;
+}
+
+.article-subrow{
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+.article-icons{
+	width: 20px;
+	height: 20px;
+}
+
+.article-link{
+	font-size: 12px;
+}
+
+.article-value{
+	margin-top: 1px;
+	font-size: 12px;
+}
+
+.article-date{
+	color : #ccc;
 }
