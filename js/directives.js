@@ -1,6 +1,4 @@
-iphoneApp
-
-.directive('myNavbar', function() {
+iphoneApp.directive('myNavbar', function() {
   return {
     templateUrl: 'views/directives/mynavbar.html'
   };
