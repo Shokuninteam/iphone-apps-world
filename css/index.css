@@ -7,9 +7,26 @@ body{
     font-family: mainFont;
 }
 
+ul{
+    list-style-type: none;
+}
+
+.breadcrumb{
+	margin-top: 20px;
+}
+
+/* Main page */
+
 #search-icon{
 	height : 20px;
 	width : 20px;
+}
+
+#paginator{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width : 250px;
 }
 
 #search-bar{
@@ -156,4 +173,37 @@ body{
 
 .article-date{
 	color : #ccc;
+}
+
+/* Article page */
+
+.main-article-row-header{
+	margin-bottom: 10px;
+}
+
+.main-article-subrow{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.main-article-icons{
+	width: 20px;
+	height: 20px;
+}
+
+.main-article-link{
+	font-size: 13px;
+}
+
+.main-article-value{
+	font-size: 13px;
+}
+
+.main-article-date{
+	color : #ccc;
+}
+
+.main-article-pic{
+	width: 100px;
+	height: 100px;
 }
