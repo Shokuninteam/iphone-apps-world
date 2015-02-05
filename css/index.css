@@ -13,6 +13,7 @@ ul{
 
 .breadcrumb{
 	margin-top: 20px;
+	margin-bottom: 0px;
 }
 
 /* Main page */
@@ -129,9 +130,7 @@ ul{
 }
 
 .article-div{
-	margin-top: 20px;
-	margin-bottom: 20px;
-	padding-bottom: 10px;
+	padding-bottom: 20px;
 	border-bottom: 1px solid #ddd;
 }
 
