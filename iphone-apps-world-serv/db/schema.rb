@@ -14,16 +14,17 @@
 ActiveRecord::Schema.define(version: 20150205022058) do
 
   create_table "apps", force: :cascade do |t|
+    t.string   "name", null: false
     t.decimal  "price"
-    t.text     "description"
+    t.text     "description", null: false
     t.text     "analysis"
     t.text     "pros"
     t.text     "cons"
     t.integer  "idCategory_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.boolean  "released"
-    t.string   "name"
+    t.boolean  "released",      default: false
+    
   end
 
   add_index "apps", ["idCategory_id"], name: "index_apps_on_idCategory_id"
