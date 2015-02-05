@@ -17,6 +17,11 @@ Rails.application.routes.draw do
     end
   end
 
+get 'global' => 'welcome#index'
+get 'articles' => 'apps#index'
+get 'articles/search' => 'apps#search'
+get 'categories/:name/articles' => 'apps#getAppsByCat'
+get 'articles/:name' => 'apps#show'
   
 
   # The priority is based upon order of creation: first created -> highest priority.

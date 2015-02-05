@@ -19,4 +19,8 @@ class AppsController < ApplicationController
 
   def index
   end
+
+  def getAppsByCat
+  end
+  
 end
