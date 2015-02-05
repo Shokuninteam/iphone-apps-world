@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150204042713) do
+ActiveRecord::Schema.define(version: 20150205022058) do
 
   create_table "apps", force: :cascade do |t|
-    t.string   "name"
     t.decimal  "price"
     t.text     "description"
     t.text     "analysis"
@@ -23,15 +22,20 @@ ActiveRecord::Schema.define(version: 20150204042713) do
     t.integer  "idCategory_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.boolean  "released"
+    t.string   "name"
   end
 
   add_index "apps", ["idCategory_id"], name: "index_apps_on_idCategory_id"
+  add_index "apps", ["name"], name: "index_apps_on_name", unique: true
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
   end
+
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true
 
   create_table "countries", force: :cascade do |t|
     t.string   "label"
@@ -60,5 +64,14 @@ ActiveRecord::Schema.define(version: 20150204042713) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
+
+  create_table "top10s", force: :cascade do |t|
+    t.integer  "idApp_id"
+    t.integer  "rank"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "top10s", ["idApp_id"], name: "index_top10s_on_idApp_id"
 
 end

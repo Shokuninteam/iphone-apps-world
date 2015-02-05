@@ -1,75 +1,23 @@
 Rails.application.routes.draw do
-  get 'images/new'
-
-  get 'images/create'
-
-  get 'images/destroy'
-
-  get 'images/edit'
-
-  get 'images/update'
-
-  get 'images/show'
-
-  get 'images/index'
-
-  get 'countries/new'
-
-  get 'countries/create'
-
-  get 'countries/destroy'
-
-  get 'countries/edit'
-
-  get 'countries/update'
-
-  get 'countries/show'
-
-  get 'countries/index'
-
-  get 'stores/new'
-
-  get 'stores/create'
-
-  get 'stores/destroy'
-
-  get 'stores/edit'
-
-  get 'stores/update'
-
-  get 'stores/show'
-
-  get 'stores/index'
-
-  get 'categories/new'
-
-  get 'categories/create'
-
-  get 'categories/destroy'
-
-  get 'categories/edit'
-
-  get 'categories/update'
-
-  get 'categories/show'
-
-  get 'categories/index'
-
-  get 'apps/new'
-
-  get 'apps/create'
-
-  get 'apps/destroy'
-
-  get 'apps/edit'
-
-  get 'apps/update'
-
-  get 'apps/show'
-
-  get 'apps/index'
 
   get 'welcome/index'
+
+
+  root 'welcome#index'
+
+  resources :categories do
+    resources :apps do
+      resources :images do
+      end
+    end
+  end
+
+  resources :stores do
+    resources :countries do
+    end
+  end
+
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
