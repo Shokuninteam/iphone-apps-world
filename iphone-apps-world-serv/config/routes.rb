@@ -12,12 +12,18 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :top10s do
+    resources :apps do
+    end
+  end
+
   resources :stores do
     resources :countries do
     end
   end
 
 get 'global' => 'globals#index'
+get 'global/set/:page' => "globals#page", :page => /\d+/
 get 'articles' => 'apps#index'
 get 'articles/search' => 'apps#search'
 get 'categories/:name/articles' => 'apps#getAppsByCat'
