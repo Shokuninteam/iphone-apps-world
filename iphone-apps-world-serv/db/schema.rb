@@ -20,14 +20,14 @@ ActiveRecord::Schema.define(version: 20150205022058) do
     t.text     "analysis"
     t.text     "pros"
     t.text     "cons"
-    t.integer  "idCategory_id"
+    t.integer  "category_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.boolean  "released",      default: false
     
   end
 
-  add_index "apps", ["idCategory_id"], name: "index_apps_on_idCategory_id"
+  add_index "apps", ["category_id"], name: "index_apps_on_category_id"
   add_index "apps", ["name"], name: "index_apps_on_name", unique: true
 
   create_table "categories", force: :cascade do |t|
@@ -40,12 +40,12 @@ ActiveRecord::Schema.define(version: 20150205022058) do
 
   create_table "countries", force: :cascade do |t|
     t.string   "label"
-    t.integer  "idStore_id"
+    t.integer  "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "countries", ["idStore_id"], name: "index_countries_on_idStore_id"
+  add_index "countries", ["store_id"], name: "index_countries_on_store_id"
 
   create_table "images", force: :cascade do |t|
     t.string   "name"
@@ -53,12 +53,12 @@ ActiveRecord::Schema.define(version: 20150205022058) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "idApp_id"
+    t.integer  "app_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
 
-  add_index "images", ["idApp_id"], name: "index_images_on_idApp_id"
+  add_index "images", ["app_id"], name: "index_images_on_app_id"
 
   create_table "stores", force: :cascade do |t|
     t.string   "baseRouterUrl"
@@ -67,12 +67,12 @@ ActiveRecord::Schema.define(version: 20150205022058) do
   end
 
   create_table "top10s", force: :cascade do |t|
-    t.integer  "idApp_id"
+    t.integer  "app_id"
     t.integer  "rank"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "top10s", ["idApp_id"], name: "index_top10s_on_idApp_id"
+  add_index "top10s", ["app_id"], name: "index_top10s_on_app_id"
 
 end

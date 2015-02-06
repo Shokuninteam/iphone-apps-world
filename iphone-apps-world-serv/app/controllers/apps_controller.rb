@@ -21,6 +21,7 @@ class AppsController < ApplicationController
   end
 
   def getAppsByCat
+
   end
   
 end

@@ -1,3 +1,3 @@
 class Country < ActiveRecord::Base
-  belongs_to :idStore
+  belongs_to :store
 end

@@ -1,3 +1,3 @@
 class Image < ActiveRecord::Base
-  belongs_to :idApp
+  belongs_to :app
 end

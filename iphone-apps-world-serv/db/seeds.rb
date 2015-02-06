@@ -23,7 +23,8 @@ apps = App.create([
  		analysis: "blablabla analysis twitter1",
  		pros: "blabla pros1",
  		cons: "blabla cons1",
- 		idCategory_id: categories.first
+ 		category: categories.first,
+ 		released: true
  	},
  	{
  		name: 'youtube',
@@ -32,17 +33,18 @@ apps = App.create([
  		analysis: "blablabla analysis youtube",
  		pros: "blabla pro youtube",
  		cons: "blabla con youtube",
- 		idCategory_id: categories.first
+ 		released: true,
+ 		category: categories.first
  	}
  ])
 
 Top10.create([
 	{
-		idApp_id: apps.first,
+		app: apps.first,
 		rank: 1
 	},
 	{
-		idApp_id: apps.second,
+		app: apps.second,
 		rank:2
 	}
 ])
