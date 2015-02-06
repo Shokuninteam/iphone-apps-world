@@ -1,17 +1,16 @@
-<!-- Twitter -->
-<div class="top-list-div"> 
+<div class="top-list-div" ng-repeat="app in top10"> 
   <div class="row top-list-header">
     <div class="col-md-1 top-list-rank">
-      1
+      {{$index + 1}}
     </div>
     <div class="col-md-2">
       <img src="img/app-logo-1.jpg" class="top-list-logo" alt="">
     </div>
     <div class="col-md-4">
-      <div class="top-list-name">Twitter</div>
+      <div class="top-list-name">{{app.name}}</div>
     </div>
     <div class="col-md-4">
-      <div class="top-list-category"><span>Social Networking</span></div>
+      <div class="top-list-category"><span>{{app.category}}</span></div>
     </div>
    </div> 
 
@@ -20,7 +19,7 @@
       <img src="img/coin.svg" alt="" class="top-list-icons">
     </div>
     <div class="col-md-8">
-      <div class="top-list-value">28$</div>
+      <div class="top-list-value">{{app.price}}</div>
     </div>
   </div>
   
@@ -29,7 +28,7 @@
       <img src="img/app-store-icon.svg" alt="" class="top-list-icons">
     </div>
     <div class="col-md-8">
-      <a href="#" class="top-list-link">AppStore : Twitter</a>
+      <a href="#" class="top-list-link">AppStore : {{app.name}}r</a>
     </div>
   </div>
 
@@ -38,53 +37,7 @@
       <img src="img/article.svg" alt="" class="top-list-icons">
     </div>
     <div class="col-md-8">
-      <a href="article/1" class="top-list-link">Article : Twitter</a>
-    </div>
-  </div>
-
-</div>
-
-<!-- Snapchat -->
-<div class="top-list-div"> 
-  <div class="row top-list-header">
-    <div class="col-md-1 top-list-rank">
-      2
-    </div>
-    <div class="col-md-2">
-      <img src="img/app-logo-2.jpg" class="top-list-logo" alt="">
-    </div>
-    <div class="col-md-4">
-      <div class="top-list-name">Snapchat</div>
-    </div>
-    <div class="col-md-4">
-      <div class="top-list-category"><span>Social Networking</span></div>
-    </div>
-   </div> 
-
-   <div class="row top-list-subrow">
-    <div class="col-md-2">
-      <img src="img/coin.svg" alt="" class="top-list-icons">
-    </div>
-    <div class="col-md-8">
-      <div class="top-list-value">Free</div>
-    </div>
-  </div>
-  
-  <div class="row top-list-subrow">
-    <div class="col-md-2">
-      <img src="img/app-store-icon.svg" alt="" class="top-list-icons">
-    </div>
-    <div class="col-md-8">
-      <a href="#" class="top-list-link">AppStore : Snapchat</a>
-    </div>
-  </div>
-
-  <div class="row top-list-subrow">
-    <div class="col-md-2">
-      <img src="img/article.svg" alt="" class="top-list-icons">
-    </div>
-    <div class="col-md-8">
-      <a href="article/1" class="top-list-link">Article : Snapchat</a>
+      <a ng-href="article/{{app.id}}" class="top-list-link">Article : {{app.name}}</a>
     </div>
   </div>
 

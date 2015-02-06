@@ -13,6 +13,7 @@
     "angular-mocks": "*",
     "jquery": "*",
     "bootstrap": "*",
-    "angular-route": "*"
+    "angular-route": "*",
+    "angular-resource" : "*"
   }
 }

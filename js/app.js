@@ -1,5 +1,6 @@
 var iphoneApp = angular.module('iphoneApp', [
-  'ngRoute'
+  'ngRoute',
+  'ngResource'
 ]);
 
 iphoneApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
