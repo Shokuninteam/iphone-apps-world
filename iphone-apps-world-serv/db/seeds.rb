@@ -41,10 +41,10 @@ apps = App.create([
 Top10.create([
 	{
 		app: apps.first,
-		rank: 1
+		rank: 2
 	},
 	{
 		app: apps.second,
-		rank:2
+		rank:1
 	}
 ])

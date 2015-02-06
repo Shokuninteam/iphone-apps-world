@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     end
   end
 
-get 'global' => 'welcome#index'
+get 'global' => 'globals#index'
 get 'articles' => 'apps#index'
 get 'articles/search' => 'apps#search'
 get 'categories/:name/articles' => 'apps#getAppsByCat'
