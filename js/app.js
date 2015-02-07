@@ -20,6 +20,10 @@ iphoneApp.config(['$routeProvider', '$locationProvider', function($routeProvider
         templateUrl: 'views/article.html',
         controller: 'ArticleCtrl'
       }).
+      when('/search', {
+        templateUrl: 'views/seek.html',
+        controller: 'SeekCtrl'
+      }).
       when('/search/:value', {
         templateUrl: 'views/search.html',
         controller: 'SearchCtrl'

@@ -210,3 +210,16 @@ ul{
 #cat-pack{
 	margin-top: 20px;
 }
+
+/* Search */
+
+#search-wrapper{
+	margin-top: 20px;
+	border : solid 1px #eee;
+	padding-left: 5px;
+	padding-left: 10px;
+}
+
+#search-wrapper input{
+	width: 400px;
+}

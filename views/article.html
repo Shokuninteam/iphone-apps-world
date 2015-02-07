@@ -1,9 +1,9 @@
 <ol class="breadcrumb" ng-init="init()">
   <li><a href="/">Articles</a></li>
-  <li><a class="active">{{article.name}}</a></li>
+  <li>{{bundle.article.name}}</li>
 </ol>
 
-<h1>{{article.name}}</h1>
+<h1>{{bundle.article.name}}</h1>
 
 <div class="container-fluid">
 	<div class="row">
@@ -16,7 +16,7 @@
 				  <img src="img/coin.svg" alt="" class="main-article-icons">
 				</div>
 				<div class="col-md-8">
-				  <div class="main-article-value">{{article.price}}</div>
+				  <div class="main-article-value">{{bundle.article.price}}</div>
 				</div>
 			</div>
 			<div class="row main-article-subrow">
@@ -24,7 +24,7 @@
 				  <img src="img/app-store-icon.svg" alt="" class="main-article-icons">
 				</div>
 				<div class="col-md-8">
-				  <a href="#" class="main-article-link">AppStore : {{article.name}}</a>
+				  <a href="#" class="main-article-link">AppStore : {{bundle.article.name}}</a>
 				</div>
 			</div>
 
@@ -33,7 +33,7 @@
 				  <img src="img/category.svg" alt="" class="main-article-icons">
 				</div>
 				<div class="col-md-8">
-				  {{getCategory(article)}}
+				  {{getCategory(bundle.article)}}
 				</div>
 			</div>
 		</div>
@@ -44,11 +44,11 @@
 
 <h2>Description</h2>
 
-{{article.description}}
+{{bundle.article.description}}
 
 <h2>Analysis</h2>
 
-{{article.analysis}}
+{{bundle.article.analysis}}
 
 <h2>In a nutshell</h2>
 
@@ -56,15 +56,12 @@
   <div class="row">
     <div class="col-md-6">
     	<ul>
-    		<li>+ loremlorem</li>
-    		<li>+ loremlorem</li>
-    		<li>+ loremlorem</li>
+    		<li ng-repeat="pro in bundle.pros">+ {{pro.content}}</li>
     	</ul>
     </div>
     <div class="col-md-6">
     	<ul>
-    		<li>- loremlorem</li>
-    		<li>- loremlorem</li>
+    		<li ng-repeat="con in bundle.cons">- {{con.content}}</li>
     	</ul>
     </div>
   </div>

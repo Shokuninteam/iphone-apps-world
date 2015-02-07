@@ -1,5 +1,73 @@
-<ol class="breadcrumb">
-  <li><a href="#" class="active">Articles</a></li>
-  <li><a href="#" class="active">Search</a></li>
-  <li><a href="#" class="active">Test</a></li>
+<ol class="breadcrumb" ng-init="init()">
+  <li><a href="" class="active">Articles</a></li>
+  <li><a href="search" class="active">Search</a></li>
+  <li>{{value}}</li>
 </ol>
+
+<div class="article-div" ng-repeat="article in search.articles"> 
+  <div class="row">
+    <div class="col-md-6 col-md-offset-1">
+      <h2>{{article.name}}</h2>
+    </div>
+  </div>
+  <div class="row article-row-header">
+    <div class="col-md-2 col-md-offset-1">                  
+      <img class="article-picture" src="img/app-logo-1.jpg" alt="">
+    </div>
+    <div class="col-md-9">
+
+      <div class="row article-subrow">
+        <div class="col-md-1">
+          <img src="img/coin.svg" alt="" class="article-icons">
+        </div>
+        <div class="col-md-8">
+          <div class="article-value">{{article.price}}</div>
+        </div>
+      </div>
+
+      <div class="row article-subrow">
+        <div class="col-md-1">
+          <img src="img/app-store-icon.svg" alt="" class="article-icons">
+        </div>
+        <div class="col-md-8">
+          <a href="#" class="article-link">AppStore : {{article.name}}</a>
+        </div>
+      </div>
+
+      <div class="row article-subrow">
+        <div class="col-md-1">
+          <img src="img/article.svg" alt="" class="article-icons">
+        </div>
+        <div class="col-md-8">
+          <a ng-href="article/{{article.name}}" class="article-link">Article : {{article.name}}</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <span class="article-date">{{article.updated_at.substring(0, 10)}}</span>
+      <span>{{article.description}}<a ng-href="article/{{article.name}}"> Read More ...</a></span>
+    </div>
+  </div>
+
+</div>
+
+<nav id="paginator">
+  <ul class="pagination">
+    <li>
+      <a href="#" ng-click="previous()" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li ng-repeat="page in paginator" ng-class="page.selected">
+      <a href="#" ng-click="goToPage(page)">{{page.number}}</a>
+    </li>
+    <li>
+      <a href="#" ng-click="next()" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
