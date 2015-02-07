@@ -1,9 +1,84 @@
-iphoneApp.controller('MainCtrl', ['$scope', 'requestService', function ($scope, requestService) {
-	
-	$scope.ok = "ok";
+iphoneApp.controller('MainCtrl', ['$scope', '$rootScope', 'requestService', '$resource', function ($scope, $rootScope, requestService, $resource) {
 
 	$scope.init = function(){
 		requestService.setBaseData();
+		$scope.page = 1;
+	};
+
+	$rootScope.$watch('main', function(newValue, oldValue) {
+		if($rootScope.main){
+			setupPagination($rootScope.main.total);
+		}		
+	});
+
+	function setupPagination(total){
+		$scope.paginator = [];
+		var indice = 0;
+		for (var i = 0; i < total / 10; i++) {
+			var selected = $scope.page === i + 1 ? 'active' : '';
+			if($scope.page === i + 1){
+				indice = i;
+			}
+			$scope.paginator.push({
+				number : i + 1,
+				selected : selected
+			});
+		}
+		
+		while($scope.paginator.length > 5){
+			var frontDiff = indice - $scope.paginator[0].number;
+			var backDiff = $scope.paginator[$scope.paginator.length - 1].number - indice;
+			if (frontDiff > backDiff){
+				$scope.paginator.splice(0, 1);
+				indice++;
+			} else {
+				$scope.paginator.splice($scope.paginator.length - 1, 1);
+				indice--;
+			}
+		}
+		
+	}
+
+	$scope.previous = function(){
+		if($scope.page > 1){
+			var Article = $resource('http://fake.co:3000/articles/set/:page', {}, {
+				'query':  {method:'GET', isArray:true},
+			});
+			Article.query({
+				page : --$scope.page
+			}, function(data) {
+				$scope.main.articles = data;
+				setupPagination($rootScope.main.total);
+			});
+		}
+		
+	};
+
+	$scope.next = function(){
+		if($scope.page < $scope.paginator[$scope.paginator.length - 1].number){
+			var Article = $resource('http://fake.co:3000/articles/set/:page', {}, {
+				'query':  {method:'GET', isArray:true},
+			});
+			Article.query({
+				page : ++$scope.page
+			}, function(data) {
+				$scope.main.articles = data;
+				setupPagination($rootScope.main.total);
+			});
+		}
+	};
+
+	$scope.goToPage = function(page){
+		$scope.page = page.number;
+		var Article = $resource('http://fake.co:3000/articles/set/:page', {}, {
+				'query':  {method:'GET', isArray:true},
+			});
+			Article.query({
+				page : $scope.page
+			}, function(data) {
+				$scope.main.articles = data;
+				setupPagination($rootScope.main.total);
+			});
 	};
 
 }]);
@@ -63,10 +138,7 @@ iphoneApp.service('requestService', ['$rootScope', '$http', '$resource',  functi
     	}
 		Global.get({}, function(data) {
 			setupDataDetails(data);
-		  	$rootScope.categories = data.categories;
-		  	$rootScope.top10 = data.top10;
-		  	$rootScope.articles = data.articles;
-		  	$rootScope.total = data.total;
+		  	$rootScope.main = data;
 		});
     };
 

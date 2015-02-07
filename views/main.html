@@ -2,7 +2,7 @@
   <li><a href="#" class="active">Articles</a></li>
 </ol>
 
-<div class="article-div" ng-repeat="article in articles"> 
+<div class="article-div" ng-repeat="article in main.articles"> 
   <div class="row">
     <div class="col-md-6 col-md-offset-1">
       <h2>{{article.name}}</h2>
@@ -55,17 +55,15 @@
 <nav id="paginator">
   <ul class="pagination">
     <li>
-      <a href="#" aria-label="Previous">
+      <a href="#" ng-click="previous()" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li class="active"><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
+    <li ng-repeat="page in paginator" ng-class="page.selected">
+      <a href="#" ng-click="goToPage(page)">{{page.number}}</a>
+    </li>
     <li>
-      <a href="#" aria-label="Next">
+      <a href="#" ng-click="next()" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
