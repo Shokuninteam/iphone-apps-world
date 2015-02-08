@@ -103,6 +103,7 @@ ul{
 }
 
 .top-list-category{
+	margin-top: 8px;
 	font-size: 10px;
 }
 
@@ -132,14 +133,6 @@ ul{
 .article-div{
 	padding-bottom: 20px;
 	border-bottom: 1px solid #ddd;
-}
-
-.article-div:hover{
-	cursor: pointer;
-	-webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
-	box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
-	border-color : white;
 }
 
 .article-picture{

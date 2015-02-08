@@ -1,9 +1,13 @@
-iphoneApp.controller('MainCtrl', ['$scope', '$rootScope', 'requestService', '$resource', function ($scope, $rootScope, requestService, $resource) {
+iphoneApp.controller('MainCtrl', ['$scope', '$rootScope', 'requestService', '$resource', '$location', function ($scope, $rootScope, requestService, $resource, $location) {
 
 	$scope.init = function(){
 		requestService.setBaseData();
 		$scope.page = 1;
 	};
+
+	$rootScope.enterSearch = function(search){
+		$location.path('search/' + search);
+	}
 
 	$rootScope.$watch('main', function(newValue, oldValue) {
 		if($rootScope.main){
