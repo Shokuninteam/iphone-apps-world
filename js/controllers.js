@@ -1,6 +1,7 @@
 iphoneApp.controller('MainCtrl', ['$scope', '$rootScope', 'requestService', '$resource', '$location', function ($scope, $rootScope, requestService, $resource, $location) {
 
 	$scope.init = function(){
+		$rootScope.globalTitle = "Iphone Apps World";
 		requestService.setBaseData();
 		$scope.page = 1;
 	};
@@ -90,6 +91,7 @@ iphoneApp.controller('MainCtrl', ['$scope', '$rootScope', 'requestService', '$re
 iphoneApp.controller('CategoryCtrl', ['$scope', '$routeParams', '$resource', '$rootScope', function($scope, $routeParams, $resource, $rootScope) {
    
 	$scope.init = function(){
+		$rootScope.globalTitle = "Apps category " + $routeParams.category;
 		$scope.selectedCategory = $routeParams.category;
 		$scope.page = 1;
 		var Categories = $resource('http://fake.co:3000/categories/:category/articles', {}, {});
@@ -184,7 +186,7 @@ iphoneApp.controller('CategoryCtrl', ['$scope', '$routeParams', '$resource', '$r
 iphoneApp.controller('ArticleCtrl', ['$scope', '$routeParams', '$resource', '$rootScope', function($scope, $routeParams, $resource, $rootScope) {
 
 	$scope.init = function(){
-
+		$rootScope.globalTitle = $routeParams.article + " iphone app review";
 		var Article = $resource('http://fake.co:3000/articles/:article', {}, {});
 		Article.get({
 			article : $routeParams.article
@@ -205,11 +207,12 @@ iphoneApp.controller('ArticleCtrl', ['$scope', '$routeParams', '$resource', '$ro
 
 }]);
 
-iphoneApp.controller('SearchCtrl', ['$scope', '$routeParams', '$resource', function($scope, $routeParams, $resource) {
+iphoneApp.controller('SearchCtrl', ['$scope', '$rootScope', '$routeParams', '$resource', function($scope, $rootScope, $routeParams, $resource) {
     
 	$scope.init = function(){
-		$scope.page = 1;
 		$scope.value = $routeParams.value;
+		$rootScope.globalTitle = "Search apps " + $scope.value;
+		$scope.page = 1;		
 		var Search = $resource('http://fake.co:3000/articles/search/:value', {}, {});
 		Search.get({
 			value : $scope.value
@@ -299,12 +302,12 @@ iphoneApp.controller('SearchCtrl', ['$scope', '$routeParams', '$resource', funct
 
 }]);
 
-iphoneApp.controller('CategoriesCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
-    
+iphoneApp.controller('CategoriesCtrl', ['$scope', '$rootScope', '$routeParams', function($scope, $rootScope, $routeParams) {
+	$rootScope.globalTitle = "Iphone apps categories";
 }]);
 
-iphoneApp.controller('SeekCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
-    
+iphoneApp.controller('SeekCtrl', ['$scope', '$rootScope', '$routeParams', function($scope, $rootScope, $routeParams) {
+    $rootScope.globalTitle = "Search iphone apps";
 }]);
 
 iphoneApp.service('requestService', ['$rootScope', '$http', '$resource',  function($rootScope, $http, $resource) {
