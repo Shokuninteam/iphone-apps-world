@@ -22,7 +22,9 @@
           <ul class="nav navbar-nav navbar-right">                
             <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
-              <a ng-href="search/{{search}}"><img id="search-icon" src="img/search.svg"></a>
+              <a ng-href="search/{{search}}">
+                <img id="search-icon" src="img/search.svg" alt="Search icon">
+              </a>
               <input ng-enter="enterSearch(search)" type="text" id="search-bar" ng-model="search" placeholder="Search">
             </div>
           </form>
