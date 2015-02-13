@@ -194,7 +194,14 @@ iphoneApp.controller('ArticleCtrl', ['$scope', '$routeParams', '$resource', '$ro
 		Article.get({
 			article : $routeParams.article
 		}, function(data) {
-			$scope.bundle = data;
+			var baseRoute = "http://fake.co:3000/";
+			data.image[0] = baseRoute + data.image[0];
+			$scope.bundle = {
+				article: data.article,
+				cons: data.cons,
+				pros: data.pros,
+				image: data.image
+			};
 		});
 	};
 
@@ -221,6 +228,10 @@ iphoneApp.controller('SearchCtrl', ['$scope', '$rootScope', '$routeParams', '$re
 		Search.get({
 			value : $scope.value
 		}, function(data) {
+			var baseRoute = "http://fake.co:3000/";
+			for (var i = 0; i < data.articles.length; i++) {
+				data.articles[i].url = baseRoute + data.articles[i].url;
+			};
 			$scope.search = data;
 		});
 	};
@@ -325,16 +336,24 @@ iphoneApp.service('requestService', ['$rootScope', '$http', '$resource',  functi
     	}
 		Global.get({}, function(data) {
 			setupDataDetails(data);
-		  	$rootScope.main = data;
+		  	$rootScope.main = {
+		  		categories : data.categories,
+		  		macro : data.macro,
+		  		top10 : data.top10,
+		  		total : data.total
+		  	};
 		});
     };
 
     function setupDataDetails(data){
+		var serverBaseRoute = "http://fake.co:3000/";
 		for (var i = 0; i < data.top10.length; i++) {
-			data.top10[i].category = getCategoryNameById(data, data.top10[i].category_id);
+			data.top10[i].app.category = getCategoryNameById(data, data.top10[i].app.category_id);
+			data.top10[i].url = serverBaseRoute + data.top10[i].url;
 		}
-		for (var j = 0; j < data.articles.length; j++) {
-			data.articles[j].category = getCategoryNameById(data, data.articles[j].category_id);
+		for (var j = 0; j < data.macro.length; j++) {
+			data.macro[j].app.category = getCategoryNameById(data, data.macro[j].app.ategory_id);
+			data.macro[j].url = serverBaseRoute + data.macro[j].url;
 		}
 	}
 

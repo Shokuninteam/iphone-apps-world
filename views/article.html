@@ -8,7 +8,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-3">
-			<img class="main-article-pic" src="img/app-logo-1.jpg" alt="Article icon">
+			<img class="main-article-pic" ng-src="{{bundle.image[0]}}" alt="Article icon">
 		</div>
 		<div class="col-md-9">
 			<div class="row main-article-subrow">
@@ -24,7 +24,7 @@
 				  <img src="img/app-store-icon.svg" alt="Apple store icon" class="main-article-icons">
 				</div>
 				<div class="col-md-8">
-				  <a href="#" class="main-article-link" rel="nofollow">AppStore : {{bundle.article.name}}</a>
+				  <a ng-href="{{bundle.article.url}}" target="_blank" class="main-article-link" rel="nofollow">AppStore : {{bundle.article.name}}</a>
 				</div>
 			</div>
 

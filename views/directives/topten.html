@@ -1,16 +1,16 @@
-<div class="top-list-div" ng-repeat="app in main.top10"> 
+<div class="top-list-div" ng-repeat="top in main.top10"> 
   <div class="row top-list-header">
     <div class="col-md-1 top-list-rank">
       {{$index + 1}}
     </div>
     <div class="col-md-2">
-      <img src="img/app-logo-1.jpg" class="top-list-logo" alt="Application logo">
+      <img ng-src="{{top.url}}" class="top-list-logo" alt="Application logo">
     </div>
     <div class="col-md-4">
-      <div class="top-list-name">{{app.name}}</div>
+      <div class="top-list-name">{{top.app.name}}</div>
     </div>
     <div class="col-md-4">
-      <div class="top-list-category"><span>{{app.category}}</span></div>
+      <div class="top-list-category"><span>{{top.app.category}}</span></div>
     </div>
    </div> 
 
@@ -19,7 +19,7 @@
       <img src="img/coin.svg" alt="Coin icon" class="top-list-icons">
     </div>
     <div class="col-md-8">
-      <div class="top-list-value">{{app.price}}</div>
+      <div class="top-list-value">{{top.app.price}}</div>
     </div>
   </div>
   
@@ -28,7 +28,7 @@
       <img src="img/app-store-icon.svg" alt="Apple store icon" class="top-list-icons">
     </div>
     <div class="col-md-8">
-      <a href="#" class="top-list-link" rel="nofollow">AppStore : {{app.name}}r</a>
+      <a ng-href="{{top.app.url}}" target="_blank" class="top-list-link" rel="nofollow">AppStore : {{top.app.name}}r</a>
     </div>
   </div>
 
@@ -37,7 +37,7 @@
       <img src="img/article.svg" alt="Article icon" class="top-list-icons">
     </div>
     <div class="col-md-8">
-      <a ng-href="article/{{app.name}}" class="top-list-link">Article : {{app.name}}</a>
+      <a ng-href="article/{{top.app.name}}" class="top-list-link">Article : {{top.app.name}}</a>
     </div>
   </div>
 

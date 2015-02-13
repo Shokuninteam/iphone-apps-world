@@ -2,15 +2,15 @@
   <li>Articles</li>
 </ol>
 
-<div class="article-div" ng-repeat="article in main.articles"> 
+<div class="article-div" ng-repeat="macro in main.macro"> 
   <div class="row">
     <div class="col-md-6 col-md-offset-1">
-      <h2>{{article.name}}</h2>
+      <h2>{{macro.app.name}}</h2>
     </div>
   </div>
   <div class="row article-row-header">
     <div class="col-md-2 col-md-offset-1">                  
-      <img class="article-picture" src="img/app-logo-1.jpg" alt="Application logo">
+      <img class="article-picture" ng-src="{{macro.url}}" alt="Application logo">
     </div>
     <div class="col-md-9">
 
@@ -19,16 +19,16 @@
           <img src="img/coin.svg" alt="Coin icon" class="article-icons">
         </div>
         <div class="col-md-8">
-          <div class="article-value">{{article.price}}</div>
+          <div class="article-value">{{macro.app.price}}</div>
         </div>
       </div>
 
       <div class="row article-subrow">
         <div class="col-md-1">
-          <img src="img/app-store-icon.svg" alt="Apple store icon" class="article-icons">
+          <img ng-src="img/app-store-icon.svg" alt="Apple store icon" class="article-icons">
         </div>
         <div class="col-md-8">
-          <a href="#" class="article-link" rel="nofollow">AppStore : {{article.name}}</a>
+          <a ng-href="{{macro.app.url}}" target="_blank" class="article-link" rel="nofollow">AppStore : {{macro.app.name}}</a>
         </div>
       </div>
 
@@ -37,7 +37,7 @@
           <img src="img/article.svg" alt="Article icon" class="article-icons">
         </div>
         <div class="col-md-8">
-          <a ng-href="article/{{article.name}}" class="article-link">Article : {{article.name}}</a>
+          <a ng-href="article/{{macro.app.name}}" class="article-link">Article : {{macro.app.name}}</a>
         </div>
       </div>
 
@@ -45,8 +45,8 @@
   </div>
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <span class="article-date">{{article.updated_at.substring(0, 10)}}</span>
-      <span>{{article.description}}<a ng-href="article/{{article.name}}"> Read More ...</a></span>
+      <span class="article-date">{{macro.app.updated_at.substring(0, 10)}}</span>
+      <span>{{macro.app.description}}<a ng-href="article/{{macro.app.name}}"> Read More ...</a></span>
     </div>
   </div>
 

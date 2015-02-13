@@ -1,5 +1,5 @@
 <ol class="breadcrumb" ng-init="init()">
-  <li><a href="" class="active">Articles</a></li>
+  <li><a href="/" class="active">Articles</a></li>
   <li><a href="search" class="active">Search</a></li>
   <li>{{value}}</li>
 </ol>
@@ -7,12 +7,12 @@
 <div class="article-div" ng-repeat="article in search.articles"> 
   <div class="row">
     <div class="col-md-6 col-md-offset-1">
-      <h2>{{article.name}}</h2>
+      <h2>{{article.app.name}}</h2>
     </div>
   </div>
   <div class="row article-row-header">
     <div class="col-md-2 col-md-offset-1">                  
-      <img class="article-picture" src="img/app-logo-1.jpg" alt="Application logo">
+      <img class="article-picture" ng-src="{{article.url}}" alt="Application logo">
     </div>
     <div class="col-md-9">
 
@@ -21,7 +21,7 @@
           <img src="img/coin.svg" alt="Coin icon" class="article-icons">
         </div>
         <div class="col-md-8">
-          <div class="article-value">{{article.price}}</div>
+          <div class="article-value">{{article.app.price}}</div>
         </div>
       </div>
 
@@ -30,7 +30,7 @@
           <img src="img/app-store-icon.svg" alt="Apple store icon" class="article-icons">
         </div>
         <div class="col-md-8">
-          <a href="#" class="article-link" rel="nofollow">AppStore : {{article.name}}</a>
+          <a ng-href="{{article.app.url}}" target="_blank" class="article-link" rel="nofollow">AppStore : {{article.app.name}}</a>
         </div>
       </div>
 
@@ -39,7 +39,7 @@
           <img src="img/article.svg" alt="Article icon" class="article-icons">
         </div>
         <div class="col-md-8">
-          <a ng-href="article/{{article.name}}" class="article-link">Article : {{article.name}}</a>
+          <a ng-href="article/{{article.app.name}}" class="article-link">Article : {{article.app.name}}</a>
         </div>
       </div>
 
@@ -47,8 +47,8 @@
   </div>
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <span class="article-date">{{article.updated_at.substring(0, 10)}}</span>
-      <span>{{article.description}}<a ng-href="article/{{article.name}}"> Read More ...</a></span>
+      <span class="article-date">{{article.app.updated_at.substring(0, 10)}}</span>
+      <span>{{article.app.description}}<a ng-href="article/{{article.app.name}}"> Read More ...</a></span>
     </div>
   </div>
 
